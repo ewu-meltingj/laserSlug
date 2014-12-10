@@ -5,8 +5,9 @@ import model.player.Player;
 import contracts.I_HaveDoorState;
 
 public class DoorStateQuestion implements I_HaveDoorState {
-	
-	public DoorStateQuestion() {}
+
+	public DoorStateQuestion() {
+	}
 
 	@Override
 	public int getSymbol() {
@@ -20,7 +21,6 @@ public class DoorStateQuestion implements I_HaveDoorState {
 
 	@Override
 	public void interact(Player player, Point direction, Door parentDoor) {
-		player.move(Point.refuse(direction));
-		parentDoor.clearDoor();
+		parentDoor.isStateChanged(true);
 	}
 }

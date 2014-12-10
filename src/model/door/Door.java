@@ -4,6 +4,7 @@ import model.Point;
 import model.maze.Interactable;
 import model.passage.A_Passage;
 import model.player.Player;
+import model.question.Question;
 import contracts.I_GetObserved;
 import contracts.I_HaveDoorState;
 import contracts.I_UserInteract;
@@ -43,6 +44,14 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 		return true;
 	}
+	
+	public Door getSibling() {
+		return _passage.getDoorSibling(this);
+	}
+	
+	public Question getQuestion() {
+		return _passage.getQuestion();
+	}
 
 	public int getHeight() {
 		return 1;
@@ -69,7 +78,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 	}
 
 	@Override
-	public void interact(Player player, Point direction) {
+	public void interactWith(Player player, Point direction) {
 		_doorState.interact(player, direction, this);
 	}
 
@@ -83,9 +92,13 @@ public class Door implements I_GetObserved, I_UserInteract {
 		_isStateChanged = isChanged;
 	}
 
+	@Override
+	public void setInteractableBounds(Interactable element) {
+		element.put(_origin, this);
+	}
+
 	public void setDoorState(I_HaveDoorState door) {
 		_doorState = door;
-		_isStateChanged = true;
 	}
 
 	public void setOrigin(Point origin) {
@@ -94,10 +107,5 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	public void setPassage(A_Passage passage) {
 		_passage = passage;
-	}
-	
-	@Override
-	public void setBounds(Interactable active) {
-		active.put(_origin, this);
 	}
 }

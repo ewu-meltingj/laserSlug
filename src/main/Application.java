@@ -12,17 +12,14 @@ import view.View;
 
 import com.googlecode.blacken.helper.ViewerHelper;
 
-
 public class Application {
 
-	
 	public static boolean hasCompletedMaze(Player player, Maze maze) {
 		return maze.getRoomEnd().contains(player.getPosition());
 	}
 
 	public static void main(String[] args) {
 
-		
 		Terminal userIO = new Terminal();
 
 		Maze maze = new Maze(3);
@@ -33,12 +30,11 @@ public class Application {
 
 		MazeTraverser trav = new MazeTraverser(maze, player);
 
-		Controller playerControl = new Controller(userIO, player,
-				elements);
+		Controller playerControl = new Controller(userIO, player, elements);
 
 		new ViewerHelper(userIO.getTerminal(), "Lazer Slug Trivia Maze",
 				TextMessage.START_MESSAGE).run();
-		
+
 		View view = new View(maze, player, userIO.getTerminal());
 
 		while (!hasCompletedMaze(player, maze) && !player.hasQuit()

@@ -1,16 +1,11 @@
 package model.player;
 
-import java.io.Serializable;
-
 import model.Point;
 import model.room.Room;
 import util.text.TextSlug;
 import contracts.I_GetObserved;
 
-
-public class Player implements I_GetObserved, Serializable {
-
-	private static final long serialVersionUID = -7414025333294430792L;
+public class Player implements I_GetObserved{
 
 	private int _xCoordinate;
 

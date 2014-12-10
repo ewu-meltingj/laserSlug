@@ -3,12 +3,16 @@ package view;
 import model.door.Door;
 import model.maze.Maze;
 import model.player.Player;
+import model.question.Question;
 import model.room.Room;
 import util.text.TextMaze;
 
 import com.googlecode.blacken.grid.BlackenGrid;
 import com.googlecode.blacken.grid.BlackenPoint;
 import com.googlecode.blacken.terminal.TerminalInterface;
+import com.googlecode.blacken.terminal.TerminalView;
+import com.googlecode.blacken.terminal.TerminalViewInterface;
+import com.googlecode.blacken.terminal.editing.SingleLine;
 
 public class View {
 
@@ -31,6 +35,8 @@ public class View {
 	private ViewDrawer _drawer;
 
 	ViewObserver observer;
+	
+	ViewQ _questionViewer;
 
 	public View(Maze maze, Player player, TerminalInterface terminal) {
 		_term = terminal;
@@ -42,7 +48,17 @@ public class View {
 		_drawer = new ViewDrawer(_guiGrid);
 		_refresher = new ViewRefresher(_term, MAP_START, _upperLeft, _guiGrid,
 				_player);
+		_questionViewer = new ViewQ(terminal);
 		initGUI();
+	}
+	
+	public boolean answerQuestion(Question question) {
+		TerminalViewInterface view = new TerminalView(_term);
+		_term.clear();
+		SingleLine.putString(view, 4, 3, question.getQuestion(), 50, 0);
+		String answer = SingleLine.getString(_term, 20, 3, 22, null);
+
+		return question.checkAnswer(answer);
 	}
 
 	public void initGUI() {
@@ -53,7 +69,8 @@ public class View {
 		for (Room room : _maze.getRooms()) {
 			for (Door door : room.getDoors()) {
 				_drawer.drawDoor(door);
-				_observer.registerDoor(new ViewObserveDoor(door, _drawer, _term));
+				_observer
+						.registerDoor(new ViewObserveDoor(door, _drawer, _questionViewer));
 			}
 		}
 

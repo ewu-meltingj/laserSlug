@@ -4,12 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-// TODO: Auto-generated Javadoc
-
 public class QuestionManager {
 
-	private final int _trivialQuestionAmount = 19; // used as placeholder to demonstrate concept
-
+	private final int _trivialQuestionAmount = 19;
 	private Random _random;
 
 	private int _questionTotalClipped;

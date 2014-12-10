@@ -4,10 +4,10 @@ import model.Point;
 import model.player.Player;
 import contracts.I_HaveDoorState;
 
-
 public class DoorStateBlocked implements I_HaveDoorState {
 
-	public DoorStateBlocked() {}
+	public DoorStateBlocked() {
+	}
 
 	@Override
 	public int getSymbol() {

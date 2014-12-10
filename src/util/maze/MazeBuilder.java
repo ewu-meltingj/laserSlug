@@ -24,9 +24,6 @@ public class MazeBuilder {
 	private static final int ROOM_PADDING = 5;
 
 	private static Interactable _interactive = new Interactable();
-	
-	private MazeBuilder() {
-	}
 
 	private static void addDoorsLR(Room roomAdjacent, Room roomCurrent) {
 		A_Passage pass = new PassageHorizontal(roomAdjacent, roomCurrent);
@@ -42,8 +39,8 @@ public class MazeBuilder {
 		_maze.addPassage(pass);
 		roomAdjacent.addDoor(pass.getDoorFirst());
 		roomCurrent.addDoor(pass.getDoorSecond());
-		_interactive.addArray(new I_UserInteract[] { roomAdjacent,
-				roomCurrent, pass, pass.getDoorFirst(), pass.getDoorSecond() });
+		_interactive.addArray(new I_UserInteract[] { roomAdjacent, roomCurrent,
+				pass, pass.getDoorFirst(), pass.getDoorSecond() });
 	}
 
 	public static Interactable create(Maze maze) {
@@ -54,8 +51,8 @@ public class MazeBuilder {
 		maze.setHeight(gridHeight());
 
 		for (int roomId = 0; roomId < _totalRooms; roomId++) {
-			Room roomCurrent = new Room(roomId,
-					createRoomOrigin(roomId), ROOM_WIDTH, ROOM_HEIGHT);
+			Room roomCurrent = new Room(roomId, createRoomOrigin(roomId),
+					ROOM_WIDTH, ROOM_HEIGHT);
 			maze.addRoom(roomId, roomCurrent);
 
 			if (hasRoomAdjacentLeft(roomId)) {
@@ -63,8 +60,7 @@ public class MazeBuilder {
 				addDoorsLR(roomLeft, roomCurrent);
 			}
 			if (hasRoomAdjacentUp(roomId)) {
-				Room roomUp = maze.getRoom(roomId
-						- maze.getRoomTotalSquared());
+				Room roomUp = maze.getRoom(roomId - maze.getRoomTotalSquared());
 				addDoorsUD(roomUp, roomCurrent);
 			}
 		}
@@ -94,6 +90,9 @@ public class MazeBuilder {
 
 	private static boolean hasRoomAdjacentUp(int roomId) {
 		return _maze.hasRoom(roomId - _totalSideRooms);
+	}
+
+	private MazeBuilder() {
 	}
 
 }
