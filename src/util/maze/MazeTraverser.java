@@ -1,3 +1,15 @@
+/**    *********************************
+ *     ******* Team Lazer Slugz ********
+ *     *********************************
+ *              
+ *  This is the current state of the third
+ *  iteration for Team Lazer Slugz. The code
+ *  uses some more patterns to help seperate
+ *  MVC elements. The ultimate goal of this 
+ *  iteration is to create a game that can
+ *  switch out a GUI on the fly.
+ * 	
+ */
 package util.maze;
 
 import model.Point;
@@ -7,24 +19,44 @@ import model.passage.A_Passage;
 import model.player.Player;
 import model.room.Room;
 
+/**
+ * The Class MazeTraverser was found within seconds of looking online.
+ * http://en.wikipedia.org/wiki/Maze_solving_algorithm
+ * I added some additional methods so that it can draw the maze given 
+ * origin, width, and height.
+ */
 public class MazeTraverser {
 
+	/** The _maze to check. */
 	private int[][] _mazeToCheck;
 
+	/** The _was here. */
 	private boolean[][] _wasHere;
 
+	/** The _maze. */
 	private Maze _maze;
 
+	/** The _maze height. */
 	private int _mazeHeight;
 
+	/** The _maze width. */
 	private int _mazeWidth;
 
+	/** The _player. */
 	private Player _player;
 
+	/** The _start. */
 	private Point _start;
 
+	/** The _end. */
 	private Point _end;
 
+	/**
+	 * Instantiates a new maze traverser.
+	 *
+	 * @param maze the maze
+	 * @param player the player
+	 */
 	public MazeTraverser(Maze maze, Player player) {
 		_maze = maze;
 		_mazeHeight = _maze.getHeight();
@@ -38,12 +70,18 @@ public class MazeTraverser {
 		drawPassages();
 	}
 
+	/**
+	 * Draw maze.
+	 */
 	private void drawMaze() {
 		for (int y = 0; y < _mazeHeight; y++)
 			for (int x = 0; x < _mazeWidth; x++)
 				_mazeToCheck[y][x] = 2;
 	}
 
+	/**
+	 * Draw passages.
+	 */
 	private void drawPassages() {
 		for (A_Passage passage : _maze.getPassages()) {
 
@@ -60,6 +98,9 @@ public class MazeTraverser {
 		}
 	}
 
+	/**
+	 * Draw rooms and doors.
+	 */
 	private void drawRoomsAndDoors() {
 		for (Room room : _maze.getRooms()) {
 			int yRoomOrigin = room.getOrigin().getY();
@@ -76,10 +117,16 @@ public class MazeTraverser {
 		}
 	}
 
+	/**
+	 * Inits the room and door drawer
+	 */
 	private void init() {
 		drawRoomsAndDoors();
 	}
 
+	/**
+	 * Prints the maze.
+	 */
 	public void printMaze() {
 		for (int y = 0; y < _mazeHeight; y++) {
 			for (int x = 0; x < _mazeWidth; x++)
@@ -89,6 +136,13 @@ public class MazeTraverser {
 		System.out.println("\n");
 	}
 
+	/**
+	 * Recursive solve.
+	 *
+	 * @param y the y coordinate starting position.
+	 * @param x the x coordinate starting position.
+	 * @return true, if successful the game will continue
+	 */
 	public boolean recursiveSolve(int y, int x) {
 		if (y == _end.getY() && x == _end.getX())
 			return true;
@@ -114,6 +168,11 @@ public class MazeTraverser {
 		return false;
 	}
 
+	/**
+	 * Solve maze.
+	 *
+	 * @return true, if successful the game will continue
+	 */
 	public boolean solveMaze() {
 		init();
 		for (int row = 0; row < _mazeHeight; row++)
