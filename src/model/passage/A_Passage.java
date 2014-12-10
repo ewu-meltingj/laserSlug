@@ -18,7 +18,7 @@ import model.door.DoorStateBlocked;
 import model.door.DoorStateCleared;
 import model.door.DoorStateQuestion;
 import model.maze.Interactable;
-import model.player.Player;
+import model.player.Passage;
 import model.question.Question;
 import model.room.Room;
 import contracts.I_UserInteract;
@@ -160,7 +160,7 @@ public abstract class A_Passage implements I_UserInteract {
 	 * model.Point)
 	 */
 	@Override
-	public void interactWith(Player player, Point direction) {
+	public void interactWith(Passage player, Point direction) {
 		player.move(direction);
 	}
 

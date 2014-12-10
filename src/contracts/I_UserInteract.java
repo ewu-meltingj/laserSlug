@@ -15,7 +15,7 @@ package contracts;
 
 import model.Point;
 import model.maze.Interactable;
-import model.player.Player;
+import model.player.Passage;
 
 /**
  * The Interface I_UserInteract. This is added to passages, rooms, and doors.
@@ -31,7 +31,7 @@ public interface I_UserInteract {
 	 * @param direction
 	 *            the direction
 	 */
-	public void interactWith(Player player, Point direction);
+	public void interactWith(Passage player, Point direction);
 
 	/**
 	 * Sets the interactable bounds.

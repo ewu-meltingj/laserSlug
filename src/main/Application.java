@@ -15,7 +15,7 @@ package main;
 
 import model.maze.Interactable;
 import model.maze.Maze;
-import model.player.Player;
+import model.player.Passage;
 import user.control.Controller;
 import user.control.Terminal;
 import util.maze.MazeBuilder;
@@ -39,7 +39,7 @@ public class Application {
 	 *            the maze
 	 * @return true, if successful
 	 */
-	public static boolean hasCompletedMaze(Player player, Maze maze) {
+	public static boolean hasCompletedMaze(Passage player, Maze maze) {
 		return maze.getRoomEnd().contains(player.getPosition());
 	}
 
@@ -77,7 +77,7 @@ public class Application {
 
 		Interactable elements = new Interactable(MazeBuilder.create(maze));
 
-		Player player = new Player(maze.getRoomStart());
+		Passage player = new Passage(maze.getRoomStart());
 
 		MazeTraverser trav = new MazeTraverser(maze, player);
 

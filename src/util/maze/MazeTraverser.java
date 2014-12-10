@@ -16,7 +16,7 @@ import model.Point;
 import model.door.Door;
 import model.maze.Maze;
 import model.passage.A_Passage;
-import model.player.Player;
+import model.player.Passage;
 import model.room.Room;
 
 /**
@@ -42,7 +42,7 @@ public class MazeTraverser {
 	private int _mazeWidth;
 
 	/** The _player. */
-	private Player _player;
+	private Passage _player;
 
 	/** The _start. */
 	private Point _start;
@@ -58,7 +58,7 @@ public class MazeTraverser {
 	 * @param player
 	 *            the player
 	 */
-	public MazeTraverser(Maze maze, Player player) {
+	public MazeTraverser(Maze maze, Passage player) {
 		_maze = maze;
 		_mazeHeight = _maze.getHeight();
 		_mazeWidth = _maze.getWidth();

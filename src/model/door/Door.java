@@ -15,7 +15,7 @@ package model.door;
 import model.Point;
 import model.maze.Interactable;
 import model.passage.A_Passage;
-import model.player.Player;
+import model.player.Passage;
 import contracts.I_GetObserved;
 import contracts.I_DoorState;
 import contracts.I_UserInteract;
@@ -127,7 +127,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 	 * model.Point)
 	 */
 	@Override
-	public void interactWith(Player player, Point direction) {
+	public void interactWith(Passage player, Point direction) {
 		_doorState.interact(player, direction, this);
 	}
 

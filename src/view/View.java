@@ -14,7 +14,7 @@ package view;
 
 import model.door.Door;
 import model.maze.Maze;
-import model.player.Player;
+import model.player.Passage;
 import model.question.Question;
 import model.room.Room;
 import util.text.TextMaze;
@@ -45,7 +45,7 @@ public class View {
 	private ViewRefresher _refresher;
 
 	/** The _player. */
-	private Player _player;
+	private Passage _player;
 
 	/** The _maze. */
 	private Maze _maze;
@@ -75,7 +75,7 @@ public class View {
 	 * @param terminal
 	 *            the terminal
 	 */
-	public View(Maze maze, Player player, TerminalInterface terminal) {
+	public View(Maze maze, Passage player, TerminalInterface terminal) {
 		_term = terminal;
 		_player = player;
 		_maze = maze;

@@ -13,7 +13,7 @@
 package model.door;
 
 import model.Point;
-import model.player.Player;
+import model.player.Passage;
 import contracts.I_DoorState;
 
 // TODO: Auto-generated Javadoc
@@ -49,7 +49,7 @@ public class DoorStateCleared implements I_DoorState {
 	 * model.door.Door)
 	 */
 	@Override
-	public void interact(Player player, Point direction, Door parentDoor) {
+	public void interact(Passage player, Point direction, Door parentDoor) {
 		player.move(direction);
 	}
 }
