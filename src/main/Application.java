@@ -1,3 +1,4 @@
+package main;
 /**    *********************************
  *     ******* Team Lazer Slugz ********
  *     *********************************
@@ -11,7 +12,6 @@
  * 	
  */
 
-package main;
 
 import model.maze.Interactable;
 import model.maze.Maze;
