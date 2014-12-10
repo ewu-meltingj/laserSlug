@@ -4,7 +4,7 @@
  *              
  *  This is the current state of the third
  *  iteration for Team Lazer Slugz. The code
- *  uses some more patterns to help seperate
+ *  uses some more patterns to help separate
  *  MVC elements. The ultimate goal of this 
  *  iteration is to create a game that can
  *  switch out a GUI on the fly.
@@ -12,27 +12,30 @@
  */
 package model.door;
 
-import model.Point;
+import model.Coordinate;
 import model.maze.Interactable;
 import model.passage.A_Passage;
-import model.player.Passage;
+import model.player.Player;
 import contracts.I_GetObserved;
-import contracts.I_DoorState;
+import contracts.I_DoorBehavior;
 import contracts.I_UserInteract;
 
 /**
- * The Class Door is an observed entity that can interact with a user.
+ * The Class Door is an observed entity that a player can interact. If the user
+ * interacts in such a way that the door changes behavior, it's state will not
+ * be changed. the doors observer will update the door to handle its current
+ * state.
  */
 public class Door implements I_GetObserved, I_UserInteract {
 
-	/** The _door state. */
-	private I_DoorState _doorState;
+	/** The _door behavior. */
+	private I_DoorBehavior _doorBehavior;
 
 	/** The _passage. */
 	private A_Passage _passage;
 
 	/** The _origin. */
-	private Point _origin;
+	private Coordinate _origin;
 
 	/** The state. */
 	private boolean _isStateChanged;
@@ -40,11 +43,12 @@ public class Door implements I_GetObserved, I_UserInteract {
 	/**
 	 * Instantiates a new door.
 	 * 
-	 * @param doorState
-	 *            the door state
+	 * @param doorBehavior
+	 *            the door's behavior
 	 */
-	public Door(I_DoorState doorState) {
-		_doorState = doorState;
+	public Door(I_DoorBehavior doorBehavior, A_Passage passage) {
+		_doorBehavior = doorBehavior;
+		_passage = passage;
 		_isStateChanged = false;
 	}
 
@@ -80,7 +84,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 	 * 
 	 * @return the origin
 	 */
-	public Point getOrigin() {
+	public Coordinate getOrigin() {
 		return _origin;
 	}
 
@@ -99,16 +103,16 @@ public class Door implements I_GetObserved, I_UserInteract {
 	 * @return the symbol
 	 */
 	public int getSymbol() {
-		return _doorState.getSymbol();
+		return _doorBehavior.getSymbol();
 	}
 
 	/**
-	 * Gets the symbol simple used by the traversable algorithm
+	 * Gets the symbol used by the traversing algorithm
 	 * 
-	 * @return the symbol simple
+	 * @return the simple symbol.
 	 */
 	public int getSymbolSimple() {
-		return _doorState.getSymbolSimple();
+		return _doorBehavior.getSymbolSimple();
 	}
 
 	/**
@@ -127,8 +131,8 @@ public class Door implements I_GetObserved, I_UserInteract {
 	 * model.Point)
 	 */
 	@Override
-	public void interactWith(Passage player, Point direction) {
-		_doorState.interact(player, direction, this);
+	public void interactWith(Player player, Coordinate direction) {
+		_doorBehavior.interact(player, direction, this);
 	}
 
 	/*
@@ -152,13 +156,13 @@ public class Door implements I_GetObserved, I_UserInteract {
 	}
 
 	/**
-	 * Sets the door state.
+	 * Sets the door behavior.
 	 * 
 	 * @param door
 	 *            sets new behavior for the door.
 	 */
-	public void setDoorState(I_DoorState door) {
-		_doorState = door;
+	public void setDoorState(I_DoorBehavior door) {
+		_doorBehavior = door;
 	}
 
 	/*
@@ -178,17 +182,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 	 * @param origin
 	 *            the new origin
 	 */
-	public void setOrigin(Point origin) {
+	public void setOrigin(Coordinate origin) {
 		_origin = origin;
-	}
-
-	/**
-	 * Sets the passage.
-	 * 
-	 * @param passage
-	 *            the new passage
-	 */
-	public void setPassage(A_Passage passage) {
-		_passage = passage;
 	}
 }

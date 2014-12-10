@@ -12,13 +12,13 @@
  */
 package model.passage;
 
-import model.Point;
+import model.Coordinate;
 import model.door.Door;
-import model.door.DoorStateBlocked;
-import model.door.DoorStateCleared;
-import model.door.DoorStateQuestion;
+import model.door.DoorBlocked;
+import model.door.DoorCleared;
+import model.door.DoorQuestion;
 import model.maze.Interactable;
-import model.player.Passage;
+import model.player.Player;
 import model.question.Question;
 import model.room.Room;
 import contracts.I_UserInteract;
@@ -35,10 +35,10 @@ public abstract class A_Passage implements I_UserInteract {
 	protected Door _secondDoor;
 
 	/** The _passage end. */
-	protected Point _passageEnd;
+	protected Coordinate _passageEnd;
 
 	/** The _passage origin. */
-	protected Point _passageOrigin;
+	protected Coordinate _passageOrigin;
 
 	/** The _question. */
 	public Question _question;
@@ -52,11 +52,9 @@ public abstract class A_Passage implements I_UserInteract {
 	 *            the second room
 	 */
 	public A_Passage(Room firstRoom, Room secondRoom) {
-		_firstDoor = new Door(new DoorStateQuestion());
-		_firstDoor.setPassage(this);
+		_firstDoor = new Door(new DoorQuestion(), this);
 
-		_secondDoor = new Door(new DoorStateQuestion());
-		_secondDoor.setPassage(this);
+		_secondDoor = new Door(new DoorQuestion(), this);
 
 		_question = new Question();
 	}
@@ -65,16 +63,16 @@ public abstract class A_Passage implements I_UserInteract {
 	 * Block doors. Changed the passages door's behavior to that of blocked.
 	 */
 	public void blockDoors() {
-		_firstDoor.setDoorState(new DoorStateBlocked());
-		_secondDoor.setDoorState(new DoorStateBlocked());
+		_firstDoor.setDoorState(new DoorBlocked());
+		_secondDoor.setDoorState(new DoorBlocked());
 	}
 
 	/**
 	 * Clear doors. Changed the passages door's behavior to that of cleared.
 	 */
 	public void clearDoors() {
-		_firstDoor.setDoorState(new DoorStateCleared());
-		_secondDoor.setDoorState(new DoorStateCleared());
+		_firstDoor.setDoorState(new DoorCleared());
+		_secondDoor.setDoorState(new DoorCleared());
 	}
 
 	/**
@@ -113,7 +111,7 @@ public abstract class A_Passage implements I_UserInteract {
 	 * 
 	 * @return the end
 	 */
-	public Point getEnd() {
+	public Coordinate getEnd() {
 		return _passageEnd;
 	}
 
@@ -131,7 +129,7 @@ public abstract class A_Passage implements I_UserInteract {
 	 * 
 	 * @return the origin
 	 */
-	public Point getOrigin() {
+	public Coordinate getOrigin() {
 		return _passageOrigin;
 	}
 
@@ -160,7 +158,7 @@ public abstract class A_Passage implements I_UserInteract {
 	 * model.Point)
 	 */
 	@Override
-	public void interactWith(Passage player, Point direction) {
+	public void interactWith(Player player, Coordinate direction) {
 		player.move(direction);
 	}
 
@@ -172,16 +170,16 @@ public abstract class A_Passage implements I_UserInteract {
 	 */
 	@Override
 	public void setInteractableBounds(Interactable active) {
-		Point origin = _passageOrigin;
-		Point end = _passageEnd;
+		Coordinate origin = _passageOrigin;
+		Coordinate end = _passageEnd;
 		int lenthHorizontal = end.getX() - origin.getX();
 		int lenthVertical = end.getY() - origin.getY();
 
 		for (int y = 0; y < lenthVertical; y++)
-			active.put(new Point(y + origin.getY(), origin.getX()), this);
+			active.put(new Coordinate(y + origin.getY(), origin.getX()), this);
 
 		for (int x = 1; x < lenthHorizontal; x++)
-			active.put(new Point(origin.getY(), origin.getX() + x), this);
+			active.put(new Coordinate(origin.getY(), origin.getX() + x), this);
 	}
 
 }

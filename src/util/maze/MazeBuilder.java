@@ -12,7 +12,7 @@
  */
 package util.maze;
 
-import model.Point;
+import model.Coordinate;
 import model.maze.Interactable;
 import model.maze.Maze;
 import model.passage.A_Passage;
@@ -127,12 +127,12 @@ public class MazeBuilder {
 	 *            the room id sets the origin given some additional settings.
 	 * @return the point
 	 */
-	private static Point createRoomOrigin(int roomID) {
+	private static Coordinate createRoomOrigin(int roomID) {
 		int offsetX = ROOM_WIDTH + ROOM_PADDING;
 		int offsetY = ROOM_HEIGHT + ROOM_PADDING;
 		int yCoord = roomID / _totalSideRooms;
 		int xCoord = roomID % _totalSideRooms;
-		return new Point(yCoord * offsetY + ROOM_PADDING, xCoord * offsetX
+		return new Coordinate(yCoord * offsetY + ROOM_PADDING, xCoord * offsetX
 				+ ROOM_PADDING);
 	}
 

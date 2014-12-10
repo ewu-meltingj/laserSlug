@@ -12,7 +12,7 @@
  */
 package model.passage;
 
-import model.Point;
+import model.Coordinate;
 import model.room.Room;
 
 /**
@@ -41,10 +41,10 @@ public class PassageVertical extends A_Passage {
 	 *            the room
 	 * @return the point
 	 */
-	private Point originBottom(Room room) {
+	private Coordinate originBottom(Room room) {
 		int xCoord = room.getOrigin().getX() + room.getWidth() / 2;
 		int yCoord = room.getOrigin().getY() + room.getHeight() - 1;
-		Point point = new Point(yCoord, xCoord);
+		Coordinate point = new Coordinate(yCoord, xCoord);
 		_passageOrigin = point;
 		return point;
 	}
@@ -56,10 +56,10 @@ public class PassageVertical extends A_Passage {
 	 *            the room
 	 * @return the point
 	 */
-	private Point originTop(Room room) {
+	private Coordinate originTop(Room room) {
 		int xCoord = room.getOrigin().getX() + room.getWidth() / 2;
 		int yCoord = room.getOrigin().getY();
-		Point point = new Point(yCoord, xCoord);
+		Coordinate point = new Coordinate(yCoord, xCoord);
 		_passageEnd = point;
 		return point;
 	}

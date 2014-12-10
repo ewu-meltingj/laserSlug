@@ -1,4 +1,5 @@
 package main;
+
 /**    *********************************
  *     ******* Team Lazer Slugz ********
  *     *********************************
@@ -12,10 +13,9 @@ package main;
  * 	
  */
 
-
 import model.maze.Interactable;
 import model.maze.Maze;
-import model.player.Passage;
+import model.player.Player;
 import user.control.Controller;
 import user.control.Terminal;
 import util.maze.MazeBuilder;
@@ -39,7 +39,7 @@ public class Application {
 	 *            the maze
 	 * @return true, if successful
 	 */
-	public static boolean hasCompletedMaze(Passage player, Maze maze) {
+	public static boolean hasCompletedMaze(Player player, Maze maze) {
 		return maze.getRoomEnd().contains(player.getPosition());
 	}
 
@@ -66,8 +66,10 @@ public class Application {
 	 * 
 	 * -Sixthly A welcome screen is displayed.
 	 * 
-	 * -Seventhly the assigned game logic happens. -Lastly the player either won
-	 * or lost and another splash screen is displayed to inform the player.
+	 * -Seventhly the assigned game logic happens.
+	 * 
+	 * -Lastly the player either won or lost and another splash screen is
+	 * displayed to inform the player.
 	 */
 	public static void main(String[] args) {
 
@@ -77,7 +79,7 @@ public class Application {
 
 		Interactable elements = new Interactable(MazeBuilder.create(maze));
 
-		Passage player = new Passage(maze.getRoomStart());
+		Player player = new Player(maze.getRoomStart());
 
 		MazeTraverser trav = new MazeTraverser(maze, player);
 
