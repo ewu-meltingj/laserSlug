@@ -1,9 +1,9 @@
 package model.door;
 
-import util.maze.Interactive;
+import model.Point;
+import model.maze.Interactable;
 import model.passage.A_Passage;
 import model.player.Player;
-import model.point.Point;
 import contracts.I_GetObserved;
 import contracts.I_HaveDoorState;
 import contracts.I_UserInteract;
@@ -97,7 +97,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 	}
 	
 	@Override
-	public void setBounds(Interactive active) {
+	public void setBounds(Interactable active) {
 		active.put(_origin, this);
 	}
 }

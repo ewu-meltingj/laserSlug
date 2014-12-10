@@ -1,17 +1,17 @@
 package model.passage;
 
-import model.point.Point;
-import model.region.RegionRoom;
+import model.Point;
+import model.room.Room;
 
 public class PassageHorizontal extends A_Passage {
 
-	public PassageHorizontal(RegionRoom leftRoom, RegionRoom rightRoom) {
+	public PassageHorizontal(Room leftRoom, Room rightRoom) {
 		super(leftRoom, rightRoom);
 		_firstDoor.setOrigin(originRight(leftRoom));
 		_secondDoor.setOrigin(originLeft(rightRoom));
 	}
 
-	private Point originLeft(RegionRoom room) {
+	private Point originLeft(Room room) {
 		int xCoord = room.getOrigin().getX();
 		int yCoord = room.getOrigin().getY() + room.getHeight() / 2;
 		Point point = new Point(yCoord, xCoord);
@@ -19,7 +19,7 @@ public class PassageHorizontal extends A_Passage {
 		return point;
 	}
 
-	private Point originRight(RegionRoom room) {
+	private Point originRight(Room room) {
 		int xCoord = room.getOrigin().getX() + room.getWidth() - 1;
 		int yCoord = room.getOrigin().getY() + room.getHeight() / 2;
 		Point point = new Point(yCoord, xCoord);

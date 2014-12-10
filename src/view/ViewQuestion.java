@@ -1,6 +1,6 @@
 package view;
 
-import model.question.QuestionTF;
+import model.question.Question;
 
 import com.googlecode.blacken.terminal.BlackenMouseEvent;
 import com.googlecode.blacken.terminal.BlackenWindowEvent;
@@ -16,9 +16,9 @@ public class ViewQuestion implements CodepointCallbackInterface {
 
 	private TerminalViewInterface view;
 
-	private QuestionTF _question;
+	private Question _question;
 
-	public ViewQuestion(TerminalInterface term, QuestionTF question) {
+	public ViewQuestion(TerminalInterface term, Question question) {
 		this.term = term;
 		_question = question;
 		view = new TerminalView(term);

@@ -1,11 +1,11 @@
 package util.maze;
 
+import model.Point;
 import model.door.Door;
+import model.maze.Maze;
 import model.passage.A_Passage;
 import model.player.Player;
-import model.point.Point;
-import model.region.RegionMaze;
-import model.region.RegionRoom;
+import model.room.Room;
 
 public class MazeTraverser {
 
@@ -13,7 +13,7 @@ public class MazeTraverser {
 
 	private boolean[][] _wasHere;
 
-	private RegionMaze _maze;
+	private Maze _maze;
 
 	private int _mazeHeight;
 
@@ -25,7 +25,7 @@ public class MazeTraverser {
 
 	private Point _end;
 
-	public MazeTraverser(RegionMaze maze, Player player) {
+	public MazeTraverser(Maze maze, Player player) {
 		_maze = maze;
 		_mazeHeight = _maze.getHeight();
 		_mazeWidth = _maze.getWidth();
@@ -61,7 +61,7 @@ public class MazeTraverser {
 	}
 
 	private void drawRoomsAndDoors() {
-		for (RegionRoom room : _maze.getRooms()) {
+		for (Room room : _maze.getRooms()) {
 			int yRoomOrigin = room.getOrigin().getY();
 			int xRoomOrigin = room.getOrigin().getX();
 			for (int y = 0; y < room.getHeight(); y++)

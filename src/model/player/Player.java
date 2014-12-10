@@ -1,15 +1,12 @@
 package model.player;
 
-//import observer.ElementObserver;
-
 import java.io.Serializable;
 
-import model.point.Point;
-import model.region.RegionRoom;
+import model.Point;
+import model.room.Room;
 import util.text.TextSlug;
 import contracts.I_GetObserved;
 
-// TODO: Auto-generated Javadoc
 
 public class Player implements I_GetObserved, Serializable {
 
@@ -23,7 +20,7 @@ public class Player implements I_GetObserved, Serializable {
 
 	private int _symbolPlayer;
 
-	private transient RegionRoom _currentRoom;
+	private transient Room _currentRoom;
 
 	private int _currentRoomID;
 
@@ -31,7 +28,7 @@ public class Player implements I_GetObserved, Serializable {
 
 	private boolean _isStateChanged;
 
-	public Player(RegionRoom newRoom) {
+	public Player(Room newRoom) {
 		_currentRoom = newRoom;
 		_currentRoomID = newRoom.getId();
 		this.setPlayerPosition(newRoom.center());
@@ -112,7 +109,7 @@ public class Player implements I_GetObserved, Serializable {
 		_symbolPlayer = symbolPlayer;
 	}
 
-	public void setRoom(RegionRoom newRoom) {
+	public void setRoom(Room newRoom) {
 		_currentRoom = newRoom;
 		_currentRoomID = _currentRoom.getId();
 	}

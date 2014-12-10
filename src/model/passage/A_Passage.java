@@ -1,13 +1,13 @@
 package model.passage;
 
-import util.maze.Interactive;
+import model.Point;
 import model.door.Door;
 import model.door.DoorStateBlocked;
 import model.door.DoorStateCleared;
 import model.door.DoorStateQuestion;
+import model.maze.Interactable;
 import model.player.Player;
-import model.point.Point;
-import model.region.RegionRoom;
+import model.room.Room;
 import contracts.I_UserInteract;
 
 public abstract class A_Passage implements I_UserInteract {
@@ -20,7 +20,7 @@ public abstract class A_Passage implements I_UserInteract {
 
 	protected Point _passageOrigin;
 
-	public A_Passage(RegionRoom firstRoom, RegionRoom secondRoom) {
+	public A_Passage(Room firstRoom, Room secondRoom) {
 		_firstDoor = new Door(new DoorStateQuestion());
 		_firstDoor.setPassage(this);
 
@@ -74,7 +74,7 @@ public abstract class A_Passage implements I_UserInteract {
 	}
 
 	@Override
-	public void setBounds(Interactive active) {
+	public void setBounds(Interactable active) {
 		Point origin = _passageOrigin;
 		Point end = _passageEnd;
 		int lenthHorizontal = end.getX() - origin.getX() ;

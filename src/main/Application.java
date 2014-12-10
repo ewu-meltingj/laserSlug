@@ -1,8 +1,10 @@
 package main;
 
+import model.maze.Interactable;
+import model.maze.Maze;
 import model.player.Player;
-import model.region.RegionMaze;
-import util.maze.Interactive;
+import user.control.Controller;
+import user.control.Terminal;
 import util.maze.MazeBuilder;
 import util.maze.MazeTraverser;
 import util.text.TextMessage;
@@ -10,13 +12,11 @@ import view.View;
 
 import com.googlecode.blacken.helper.ViewerHelper;
 
-import control.player.Controller;
-import control.player.Terminal;
 
 public class Application {
 
 	
-	public static boolean hasCompletedMaze(Player player, RegionMaze maze) {
+	public static boolean hasCompletedMaze(Player player, Maze maze) {
 		return maze.getRoomEnd().contains(player.getPosition());
 	}
 
@@ -25,9 +25,9 @@ public class Application {
 		
 		Terminal userIO = new Terminal();
 
-		RegionMaze maze = new RegionMaze(3);
+		Maze maze = new Maze(3);
 
-		Interactive elements = new Interactive(MazeBuilder.create(maze));
+		Interactable elements = new Interactable(MazeBuilder.create(maze));
 
 		Player player = new Player(maze.getRoomStart());
 

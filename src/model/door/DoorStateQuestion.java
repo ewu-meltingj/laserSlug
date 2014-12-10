@@ -1,7 +1,7 @@
 package model.door;
 
+import model.Point;
 import model.player.Player;
-import model.point.Point;
 import contracts.I_HaveDoorState;
 
 public class DoorStateQuestion implements I_HaveDoorState {

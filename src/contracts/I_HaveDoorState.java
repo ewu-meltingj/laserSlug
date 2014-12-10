@@ -1,8 +1,8 @@
 package contracts;
 
+import model.Point;
 import model.door.Door;
 import model.player.Player;
-import model.point.Point;
 
 public interface I_HaveDoorState {
 
