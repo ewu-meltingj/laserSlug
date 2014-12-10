@@ -22,9 +22,11 @@ public class PassageVertical extends A_Passage {
 
 	/**
 	 * Instantiates a new passage vertical.
-	 *
-	 * @param topRoom the top room
-	 * @param bottomRoom the bottom room
+	 * 
+	 * @param topRoom
+	 *            the top room
+	 * @param bottomRoom
+	 *            the bottom room
 	 */
 	public PassageVertical(Room topRoom, Room bottomRoom) {
 		super(topRoom, bottomRoom);
@@ -34,8 +36,9 @@ public class PassageVertical extends A_Passage {
 
 	/**
 	 * Origin bottom.
-	 *
-	 * @param room the room
+	 * 
+	 * @param room
+	 *            the room
 	 * @return the point
 	 */
 	private Point originBottom(Room room) {
@@ -48,8 +51,9 @@ public class PassageVertical extends A_Passage {
 
 	/**
 	 * Origin top.
-	 *
-	 * @param room the room
+	 * 
+	 * @param room
+	 *            the room
 	 * @return the point
 	 */
 	private Point originTop(Room room) {

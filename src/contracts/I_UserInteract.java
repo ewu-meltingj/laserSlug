@@ -22,20 +22,23 @@ import model.player.Player;
  * They interact with the player and the direction intended.
  */
 public interface I_UserInteract {
-	
+
 	/**
 	 * Interact with.
-	 *
-	 * @param player the player
-	 * @param direction the direction
+	 * 
+	 * @param player
+	 *            the player
+	 * @param direction
+	 *            the direction
 	 */
 	public void interactWith(Player player, Point direction);
 
 	/**
 	 * Sets the interactable bounds.
-	 *
-	 * @param active is the element ready to interact. It is
-	 * called by its self to draw the bounds it can interact.
+	 * 
+	 * @param active
+	 *            is the element ready to interact. It is called by its self to
+	 *            draw the bounds it can interact.
 	 */
 	public void setInteractableBounds(Interactable active);
 }

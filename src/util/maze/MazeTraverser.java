@@ -21,9 +21,8 @@ import model.room.Room;
 
 /**
  * The Class MazeTraverser was found within seconds of looking online.
- * http://en.wikipedia.org/wiki/Maze_solving_algorithm
- * I added some additional methods so that it can draw the maze given 
- * origin, width, and height.
+ * http://en.wikipedia.org/wiki/Maze_solving_algorithm I added some additional
+ * methods so that it can draw the maze given origin, width, and height.
  */
 public class MazeTraverser {
 
@@ -53,9 +52,11 @@ public class MazeTraverser {
 
 	/**
 	 * Instantiates a new maze traverser.
-	 *
-	 * @param maze the maze
-	 * @param player the player
+	 * 
+	 * @param maze
+	 *            the maze
+	 * @param player
+	 *            the player
 	 */
 	public MazeTraverser(Maze maze, Player player) {
 		_maze = maze;
@@ -138,9 +139,11 @@ public class MazeTraverser {
 
 	/**
 	 * Recursive solve.
-	 *
-	 * @param y the y coordinate starting position.
-	 * @param x the x coordinate starting position.
+	 * 
+	 * @param y
+	 *            the y coordinate starting position.
+	 * @param x
+	 *            the x coordinate starting position.
 	 * @return true, if successful the game will continue
 	 */
 	public boolean recursiveSolve(int y, int x) {
@@ -170,7 +173,7 @@ public class MazeTraverser {
 
 	/**
 	 * Solve maze.
-	 *
+	 * 
 	 * @return true, if successful the game will continue
 	 */
 	public boolean solveMaze() {

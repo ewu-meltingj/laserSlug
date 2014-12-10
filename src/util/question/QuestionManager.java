@@ -24,7 +24,7 @@ public class QuestionManager {
 
 	/** The _trivial question amount. */
 	private final int _trivialQuestionAmount = 19;
-	
+
 	/** The _random. */
 	private Random _random;
 
@@ -53,7 +53,7 @@ public class QuestionManager {
 
 	/**
 	 * Gets the next random id.
-	 *
+	 * 
 	 * @return the next random id
 	 */
 	public int getNextRandomID() {
@@ -70,7 +70,7 @@ public class QuestionManager {
 
 	/**
 	 * Gets the total from database.
-	 *
+	 * 
 	 * @return the total from database
 	 */
 	private int getTotalFromDatabase() {
@@ -79,7 +79,7 @@ public class QuestionManager {
 
 	/**
 	 * Gets the used i ds.
-	 *
+	 * 
 	 * @return the used i ds
 	 */
 	public List<Integer> getUsedIDs() {
@@ -88,7 +88,7 @@ public class QuestionManager {
 
 	/**
 	 * Lendth side.
-	 *
+	 * 
 	 * @return the int
 	 */
 	public int lendthSide() {
@@ -97,7 +97,7 @@ public class QuestionManager {
 
 	/**
 	 * Length.
-	 *
+	 * 
 	 * @return the int
 	 */
 	public int length() {
@@ -105,9 +105,9 @@ public class QuestionManager {
 	}
 
 	/**
-	 * Length cleaned. ex. total question was 15 thus total clipped would be
-	 * 9. If it were 16 then it would be 16. 27 it would be 25 and so forth.
-	 *
+	 * Length cleaned. ex. total question was 15 thus total clipped would be 9.
+	 * If it were 16 then it would be 16. 27 it would be 25 and so forth.
+	 * 
 	 * @return the int
 	 */
 	public int lengthCleaned() {
@@ -116,8 +116,9 @@ public class QuestionManager {
 
 	/**
 	 * Question total root.
-	 *
-	 * @param total the total
+	 * 
+	 * @param total
+	 *            the total
 	 * @return the int
 	 */
 	private int questionTotalRoot(int total) {

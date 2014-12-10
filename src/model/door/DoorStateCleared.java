@@ -22,7 +22,9 @@ import contracts.I_DoorState;
  */
 public class DoorStateCleared implements I_DoorState {
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see contracts.I_DoorState#getSymbol()
 	 */
 	@Override
@@ -30,7 +32,9 @@ public class DoorStateCleared implements I_DoorState {
 		return "+".codePointAt(0);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see contracts.I_DoorState#getSymbolSimple()
 	 */
 	@Override
@@ -38,8 +42,11 @@ public class DoorStateCleared implements I_DoorState {
 		return 1;
 	}
 
-	/* (non-Javadoc)
-	 * @see contracts.I_DoorState#interact(model.player.Player, model.Point, model.door.Door)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see contracts.I_DoorState#interact(model.player.Player, model.Point,
+	 * model.door.Door)
 	 */
 	@Override
 	public void interact(Player player, Point direction, Door parentDoor) {

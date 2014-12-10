@@ -20,7 +20,7 @@ import contracts.I_GetObserved;
 /**
  * The Class Player.
  */
-public class Player implements I_GetObserved{
+public class Player implements I_GetObserved {
 
 	/** The _x coordinate. */
 	private int _xCoordinate;
@@ -48,8 +48,9 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Instantiates a new player.
-	 *
-	 * @param newRoom the room the player starts in
+	 * 
+	 * @param newRoom
+	 *            the room the player starts in
 	 */
 	public Player(Room newRoom) {
 		_currentRoom = newRoom;
@@ -63,7 +64,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Gets the player position prev.
-	 *
+	 * 
 	 * @return the player position prev
 	 */
 	public Point getPlayerPositionPrev() {
@@ -72,7 +73,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Gets the player symbol.
-	 *
+	 * 
 	 * @return the player symbol
 	 */
 	public int getPlayerSymbol() {
@@ -81,7 +82,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Gets the position.
-	 *
+	 * 
 	 * @return the position
 	 */
 	public Point getPosition() {
@@ -90,7 +91,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Gets the room current id.
-	 *
+	 * 
 	 * @return the room current id
 	 */
 	public int getRoomCurrentID() {
@@ -99,7 +100,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Gets the x coordinate.
-	 *
+	 * 
 	 * @return the x
 	 */
 	public int getX() {
@@ -108,7 +109,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Gets the y coordinate.
-	 *
+	 * 
 	 * @return the y
 	 */
 	public int getY() {
@@ -117,7 +118,7 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Checks for user quit.
-	 *
+	 * 
 	 * @return true, if successful application ends.
 	 */
 	public boolean hasQuit() {
@@ -126,14 +127,17 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Sets quit.
-	 *
-	 * @param hasQuit the user just informed the application that it quit.
+	 * 
+	 * @param hasQuit
+	 *            the user just informed the application that it quit.
 	 */
 	public void hasQuit(boolean hasQuit) {
 		_hasQuit = hasQuit;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see contracts.I_GetObserved#isStateChanged()
 	 */
 	@Override
@@ -141,7 +145,9 @@ public class Player implements I_GetObserved{
 		return _isStateChanged;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see contracts.I_GetObserved#isStateChanged(boolean)
 	 */
 	@Override
@@ -150,10 +156,10 @@ public class Player implements I_GetObserved{
 	}
 
 	/**
-	 * Move. moves player and informs the application that
-	 * its' state changed.
-	 *
-	 * @param direction the direction moved to.
+	 * Move. moves player and informs the application that its' state changed.
+	 * 
+	 * @param direction
+	 *            the direction moved to.
 	 */
 	public void move(Point direction) {
 		_oldPosition = getPosition();
@@ -164,8 +170,9 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Possible. creates a new point that the user wants to move to
-	 *
-	 * @param direction the direction
+	 * 
+	 * @param direction
+	 *            the direction
 	 * @return the point
 	 */
 	public Point possible(Point direction) {
@@ -174,9 +181,11 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Sets the player position.
-	 *
-	 * @param yCoord the y coord
-	 * @param xCoord the x coord
+	 * 
+	 * @param yCoord
+	 *            the y coord
+	 * @param xCoord
+	 *            the x coord
 	 */
 	public void setPlayerPosition(int yCoord, int xCoord) {
 		_xCoordinate = xCoord;
@@ -185,8 +194,9 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Sets the player position.
-	 *
-	 * @param position the new player position
+	 * 
+	 * @param position
+	 *            the new player position
 	 */
 	public void setPlayerPosition(Point position) {
 		_xCoordinate = position.getX();
@@ -195,8 +205,9 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Sets the player position prev.
-	 *
-	 * @param prev the new player position prev
+	 * 
+	 * @param prev
+	 *            the new player position prev
 	 */
 	public void setPlayerPositionPrev(Point prev) {
 		_oldPosition = prev;
@@ -204,8 +215,9 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Sets the player symbol.
-	 *
-	 * @param symbolPlayer the new player symbol
+	 * 
+	 * @param symbolPlayer
+	 *            the new player symbol
 	 */
 	public void setPlayerSymbol(int symbolPlayer) {
 		_symbolPlayer = symbolPlayer;
@@ -213,8 +225,9 @@ public class Player implements I_GetObserved{
 
 	/**
 	 * Sets the room.
-	 *
-	 * @param newRoom the new room
+	 * 
+	 * @param newRoom
+	 *            the new room
 	 */
 	public void setRoom(Room newRoom) {
 		_currentRoom = newRoom;

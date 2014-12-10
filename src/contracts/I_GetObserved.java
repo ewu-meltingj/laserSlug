@@ -14,22 +14,23 @@
 package contracts;
 
 /**
- * The Interface I_GetObserve is added to entities that can change state.
- * this is used to redraw elements that have altered state.
+ * The Interface I_GetObserve is added to entities that can change state. this
+ * is used to redraw elements that have altered state.
  */
 public interface I_GetObserved {
 
 	/**
 	 * Checks if state changed.
-	 *
+	 * 
 	 * @return true, if is changed
 	 */
 	public boolean isStateChanged();
 
 	/**
 	 * Manually set status of state.
-	 *
-	 * @param isChanged is true for a state change and false otherwise.
+	 * 
+	 * @param isChanged
+	 *            is true for a state change and false otherwise.
 	 */
 	public void isStateChanged(boolean isChanged);
 }

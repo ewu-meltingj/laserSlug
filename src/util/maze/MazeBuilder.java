@@ -50,12 +50,14 @@ public class MazeBuilder {
 
 	/**
 	 * Adds the doors to a room. These doors are horizontal so they will be
-	 * assigned to a horizontal passage. Having a horizontal and vertical passage
-	 * give me no real benefits. This is a part of the application that needs to be
-	 * redesigned.
-	 *
-	 * @param roomAdjacent the room adjacent
-	 * @param roomCurrent the room current
+	 * assigned to a horizontal passage. Having a horizontal and vertical
+	 * passage give me no real benefits. This is a part of the application that
+	 * needs to be redesigned.
+	 * 
+	 * @param roomAdjacent
+	 *            the room adjacent
+	 * @param roomCurrent
+	 *            the room current
 	 */
 	private static void addDoorsLR(Room roomAdjacent, Room roomCurrent) {
 		A_Passage pass = new PassageHorizontal(roomAdjacent, roomCurrent);
@@ -69,11 +71,13 @@ public class MazeBuilder {
 	/**
 	 * Adds the doors to a room. These doors are vertical so they will be
 	 * assigned to a vertical passage. Having a horizontal and vertical passage
-	 * give me no real benefits. This is a part of the application that needs to be
-	 * redesigned.
-	 *
-	 * @param roomAdjacent the room adjacent
-	 * @param roomCurrent the room current
+	 * give me no real benefits. This is a part of the application that needs to
+	 * be redesigned.
+	 * 
+	 * @param roomAdjacent
+	 *            the room adjacent
+	 * @param roomCurrent
+	 *            the room current
 	 */
 	private static void addDoorsUD(Room roomAdjacent, Room roomCurrent) {
 		A_Passage pass = new PassageVertical(roomAdjacent, roomCurrent);
@@ -85,10 +89,11 @@ public class MazeBuilder {
 	}
 
 	/**
-	 * Creates the container holding all of the interactable elements
-	 * inside of the created maze.
-	 *
-	 * @param maze the maze
+	 * Creates the container holding all of the interactable elements inside of
+	 * the created maze.
+	 * 
+	 * @param maze
+	 *            the maze
 	 * @return the interactable
 	 */
 	public static Interactable create(Maze maze) {
@@ -117,8 +122,9 @@ public class MazeBuilder {
 
 	/**
 	 * Creates the room origin.
-	 *
-	 * @param roomID the room id sets the origin given some additional settings.
+	 * 
+	 * @param roomID
+	 *            the room id sets the origin given some additional settings.
 	 * @return the point
 	 */
 	private static Point createRoomOrigin(int roomID) {
@@ -132,7 +138,7 @@ public class MazeBuilder {
 
 	/**
 	 * Grid height.
-	 *
+	 * 
 	 * @return the int
 	 */
 	private static int gridHeight() {
@@ -141,7 +147,7 @@ public class MazeBuilder {
 
 	/**
 	 * Grid width.
-	 *
+	 * 
 	 * @return the int
 	 */
 	private static int gridWidth() {
@@ -150,11 +156,12 @@ public class MazeBuilder {
 
 	/**
 	 * Checks for room adjacent left.
-	 *
-	 * @param roomId the room id checks a hash map to see if their is a room
-	 * on the left
+	 * 
+	 * @param roomId
+	 *            the room id checks a hash map to see if their is a room on the
+	 *            left
 	 * @return true, if successful a new passage will be created containing both
-	 * rooms with some doors attactched.
+	 *         rooms with some doors attactched.
 	 */
 	private static boolean hasRoomAdjacentLeft(int roomId) {
 		return _maze.hasRoom(roomId - 1) && roomId % _totalSideRooms != 0;
@@ -162,10 +169,11 @@ public class MazeBuilder {
 
 	/**
 	 * Checks for room adjacent up.
-	 *
-	 * @param roomId the room id checks a hash map to see if their is a room
+	 * 
+	 * @param roomId
+	 *            the room id checks a hash map to see if their is a room
 	 * @return true, if successful a new passage will be created containing both
-	 * rooms with some doors attactched.
+	 *         rooms with some doors attactched.
 	 */
 	private static boolean hasRoomAdjacentUp(int roomId) {
 		return _maze.hasRoom(roomId - _totalSideRooms);

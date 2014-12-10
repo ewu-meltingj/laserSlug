@@ -61,16 +61,19 @@ public class View {
 
 	/** The observer. */
 	ViewObserver observer;
-	
+
 	/** The _question viewer. */
 	ViewQuestion _questionViewer;
 
 	/**
 	 * Instantiates a new view.
-	 *
-	 * @param maze the maze
-	 * @param player the player
-	 * @param terminal the terminal
+	 * 
+	 * @param maze
+	 *            the maze
+	 * @param player
+	 *            the player
+	 * @param terminal
+	 *            the terminal
 	 */
 	public View(Maze maze, Player player, TerminalInterface terminal) {
 		_term = terminal;
@@ -85,11 +88,12 @@ public class View {
 		_questionViewer = new ViewQuestion(terminal);
 		initGUI();
 	}
-	
+
 	/**
 	 * Answer question.
-	 *
-	 * @param question the question
+	 * 
+	 * @param question
+	 *            the question
 	 * @return true, if successful
 	 */
 	public boolean answerQuestion(Question question) {
@@ -112,8 +116,8 @@ public class View {
 		for (Room room : _maze.getRooms()) {
 			for (Door door : room.getDoors()) {
 				_drawer.drawDoor(door);
-				_observer
-						.registerDoor(new ViewObserveDoor(door, _drawer, _questionViewer));
+				_observer.registerDoor(new ViewObserveDoor(door, _drawer,
+						_questionViewer));
 			}
 		}
 

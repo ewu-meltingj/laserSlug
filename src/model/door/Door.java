@@ -39,15 +39,18 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Instantiates a new door.
-	 *
-	 * @param doorState the door state
+	 * 
+	 * @param doorState
+	 *            the door state
 	 */
 	public Door(I_DoorState doorState) {
 		_doorState = doorState;
 		_isStateChanged = false;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -65,7 +68,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Gets the height.
-	 *
+	 * 
 	 * @return the height
 	 */
 	public int getHeight() {
@@ -74,7 +77,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Gets the origin.
-	 *
+	 * 
 	 * @return the origin
 	 */
 	public Point getOrigin() {
@@ -83,7 +86,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Gets the passage.
-	 *
+	 * 
 	 * @return the passage
 	 */
 	public A_Passage getPassage() {
@@ -92,7 +95,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Gets the symbol shown to the user.
-	 *
+	 * 
 	 * @return the symbol
 	 */
 	public int getSymbol() {
@@ -100,9 +103,8 @@ public class Door implements I_GetObserved, I_UserInteract {
 	}
 
 	/**
-	 * Gets the symbol simple used by the traversable
-	 * algorithm
-	 *
+	 * Gets the symbol simple used by the traversable algorithm
+	 * 
 	 * @return the symbol simple
 	 */
 	public int getSymbolSimple() {
@@ -111,22 +113,27 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Gets the width.
-	 *
+	 * 
 	 * @return the width
 	 */
 	public int getWidth() {
 		return 1;
 	}
 
-	/* (non-Javadoc)
-	 * @see contracts.I_UserInteract#interactWith(model.player.Player, model.Point)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see contracts.I_UserInteract#interactWith(model.player.Player,
+	 * model.Point)
 	 */
 	@Override
 	public void interactWith(Player player, Point direction) {
 		_doorState.interact(player, direction, this);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see contracts.I_GetObserved#isStateChanged()
 	 */
 	@Override
@@ -134,7 +141,9 @@ public class Door implements I_GetObserved, I_UserInteract {
 		return _isStateChanged;
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see contracts.I_GetObserved#isStateChanged(boolean)
 	 */
 	@Override
@@ -142,8 +151,21 @@ public class Door implements I_GetObserved, I_UserInteract {
 		_isStateChanged = isChanged;
 	}
 
-	/* (non-Javadoc)
-	 * @see contracts.I_UserInteract#setInteractableBounds(model.maze.Interactable)
+	/**
+	 * Sets the door state.
+	 * 
+	 * @param door
+	 *            sets new behavior for the door.
+	 */
+	public void setDoorState(I_DoorState door) {
+		_doorState = door;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * contracts.I_UserInteract#setInteractableBounds(model.maze.Interactable)
 	 */
 	@Override
 	public void setInteractableBounds(Interactable element) {
@@ -151,18 +173,10 @@ public class Door implements I_GetObserved, I_UserInteract {
 	}
 
 	/**
-	 * Sets the door state.
-	 *
-	 * @param door sets new behavior for the door.
-	 */
-	public void setDoorState(I_DoorState door) {
-		_doorState = door;
-	}
-
-	/**
 	 * Sets the origin.
-	 *
-	 * @param origin the new origin
+	 * 
+	 * @param origin
+	 *            the new origin
 	 */
 	public void setOrigin(Point origin) {
 		_origin = origin;
@@ -170,8 +184,9 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	/**
 	 * Sets the passage.
-	 *
-	 * @param passage the new passage
+	 * 
+	 * @param passage
+	 *            the new passage
 	 */
 	public void setPassage(A_Passage passage) {
 		_passage = passage;

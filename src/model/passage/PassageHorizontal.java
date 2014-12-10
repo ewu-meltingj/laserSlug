@@ -22,9 +22,11 @@ public class PassageHorizontal extends A_Passage {
 
 	/**
 	 * Instantiates a new passage horizontal.
-	 *
-	 * @param leftRoom the left room
-	 * @param rightRoom the right room
+	 * 
+	 * @param leftRoom
+	 *            the left room
+	 * @param rightRoom
+	 *            the right room
 	 */
 	public PassageHorizontal(Room leftRoom, Room rightRoom) {
 		super(leftRoom, rightRoom);
@@ -34,8 +36,9 @@ public class PassageHorizontal extends A_Passage {
 
 	/**
 	 * Origin left.
-	 *
-	 * @param room the room
+	 * 
+	 * @param room
+	 *            the room
 	 * @return the point
 	 */
 	private Point originLeft(Room room) {
@@ -48,8 +51,9 @@ public class PassageHorizontal extends A_Passage {
 
 	/**
 	 * Origin right creates an origin point for the room.
-	 *
-	 * @param room the room
+	 * 
+	 * @param room
+	 *            the room
 	 * @return the point
 	 */
 	private Point originRight(Room room) {
