@@ -70,7 +70,7 @@ public class Door implements I_GetObserved, I_UserInteract {
 
 	@Override
 	public void interact(Player player, Point direction) {
-		_doorState.interact(player, direction);
+		_doorState.interact(player, direction, this);
 	}
 
 	@Override

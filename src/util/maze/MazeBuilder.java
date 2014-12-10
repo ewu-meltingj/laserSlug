@@ -10,11 +10,11 @@ import contracts.I_UserInteract;
 
 public class MazeBuilder {
 
-	private RegionMaze _maze;
+	private static RegionMaze _maze;
 
-	private int _totalRooms;
+	private static int _totalRooms;
 
-	private int _totalSideRooms;
+	private static int _totalSideRooms;
 
 	private static final int ROOM_WIDTH = 11;
 
@@ -22,13 +22,12 @@ public class MazeBuilder {
 
 	private static final int ROOM_PADDING = 5;
 
-	Interactive _interactive;
-
-	public MazeBuilder() {
-		_interactive = new Interactive();
+	private static Interactive _interactive = new Interactive();
+	
+	private MazeBuilder() {
 	}
 
-	private void addDoorsLR(RegionRoom roomAdjacent, RegionRoom roomCurrent) {
+	private static void addDoorsLR(RegionRoom roomAdjacent, RegionRoom roomCurrent) {
 		A_Passage pass = new PassageHorizontal(roomAdjacent, roomCurrent);
 		_maze.addPassage(pass);
 		roomAdjacent.addDoor(pass.getDoorFirst());
@@ -37,7 +36,7 @@ public class MazeBuilder {
 				pass.getDoorFirst(), pass, roomAdjacent, roomCurrent });
 	}
 
-	private void addDoorsUD(RegionRoom roomAdjacent, RegionRoom roomCurrent) {
+	private static void addDoorsUD(RegionRoom roomAdjacent, RegionRoom roomCurrent) {
 		A_Passage pass = new PassageVertical(roomAdjacent, roomCurrent);
 		_maze.addPassage(pass);
 		roomAdjacent.addDoor(pass.getDoorFirst());
@@ -46,7 +45,7 @@ public class MazeBuilder {
 				roomCurrent, pass, pass.getDoorFirst(), pass.getDoorSecond() });
 	}
 
-	public Interactive create(RegionMaze maze) {
+	public static Interactive create(RegionMaze maze) {
 		_maze = maze;
 		_totalRooms = maze.getRoomTotal();
 		_totalSideRooms = maze.getRoomTotalSquared();
@@ -71,7 +70,7 @@ public class MazeBuilder {
 		return _interactive;
 	}
 
-	public Point createRoomOrigin(int roomID) {
+	private static Point createRoomOrigin(int roomID) {
 		int offsetX = ROOM_WIDTH + ROOM_PADDING;
 		int offsetY = ROOM_HEIGHT + ROOM_PADDING;
 		int yCoord = roomID / _totalSideRooms;
@@ -80,19 +79,19 @@ public class MazeBuilder {
 				+ ROOM_PADDING);
 	}
 
-	public int gridHeight() {
+	private static int gridHeight() {
 		return (ROOM_HEIGHT + ROOM_PADDING) * _totalSideRooms + ROOM_PADDING;
 	}
 
-	public int gridWidth() {
+	private static int gridWidth() {
 		return (ROOM_WIDTH + ROOM_PADDING) * _totalSideRooms + ROOM_PADDING;
 	}
 
-	private boolean hasRoomAdjacentLeft(int roomId) {
+	private static boolean hasRoomAdjacentLeft(int roomId) {
 		return _maze.hasRoom(roomId - 1) && roomId % _totalSideRooms != 0;
 	}
 
-	private boolean hasRoomAdjacentUp(int roomId) {
+	private static boolean hasRoomAdjacentUp(int roomId) {
 		return _maze.hasRoom(roomId - _totalSideRooms);
 	}
 

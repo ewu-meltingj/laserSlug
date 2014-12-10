@@ -20,7 +20,7 @@ public class DoorStateBlocked implements I_HaveDoorState {
 	}
 
 	@Override
-	public void interact(Player player, Point direction) {
+	public void interact(Player player, Point direction, Door parentDoor) {
 		player.move(Point.refuse(direction));
 	}
 }

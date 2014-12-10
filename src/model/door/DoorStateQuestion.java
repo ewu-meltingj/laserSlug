@@ -19,8 +19,8 @@ public class DoorStateQuestion implements I_HaveDoorState {
 	}
 
 	@Override
-	public void interact(Player player, Point direction) {
+	public void interact(Player player, Point direction, Door parentDoor) {
 		player.move(Point.refuse(direction));
-//		_door.clearDoor();
+		parentDoor.clearDoor();
 	}
 }

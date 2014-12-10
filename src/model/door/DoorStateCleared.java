@@ -6,8 +6,6 @@ import contracts.I_HaveDoorState;
 
 public class DoorStateCleared implements I_HaveDoorState {
 
-	public DoorStateCleared() {}
-
 	@Override
 	public int getSymbol() {
 		return "+".codePointAt(0);
@@ -19,7 +17,7 @@ public class DoorStateCleared implements I_HaveDoorState {
 	}
 
 	@Override
-	public void interact(Player player, Point direction) {
+	public void interact(Player player, Point direction, Door parentDoor) {
 		player.move(direction);
 	}
 }
