@@ -21,7 +21,7 @@ import model.room.Room;
 public class PassageHorizontal extends A_Passage {
 
 	/**
-	 * Instantiates a new passage horizontal.
+	 * Instantiates a new horizontal passage.
 	 * 
 	 * @param leftRoom
 	 *            the left room
@@ -35,7 +35,7 @@ public class PassageHorizontal extends A_Passage {
 	}
 
 	/**
-	 * Origin left.
+	 * Origin left creates a point for the .
 	 * 
 	 * @param room
 	 *            the room
