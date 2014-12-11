@@ -1,0 +1,32 @@
+TODO LIST FOR FUTURE ITERATION
+
+change observer main use from doors to passages
+
+something else.
+
+remember to add additional graphical hints when missing questions/correct/start/quit
+
+rem to add more interactable objects that will play different parts of a sound melody
+depning on their room position and user interaction of which part of a measure to start.
+
+-- each element should have a unique identifier so that the user makes has more say as
+to how the music will be designed.
+
+-- completely remove the blacken library such that the application depends on no other
+code to function properly.
+
+-- also based on how possible it is to make it to the end point draw additional graphic elements
+around the player that is disorienting.
+
+-- additionally each room should have an answer that may or may not be useful to the user so that
+the user can learn as it plays... it will allow an interactive fun element to learning
+junky information. it will make this more useful to many end users.
+
+-- allow the admin to set wether or not the maze will have a static amount of questions or if
+the amount of rooms to traverse grows depending on the amount of questions in the database.
+
+--when creating the maze create some way to state wether or not an element is created randomly
+and which ones are set static
+
+-- add an initial amount of questions that can be missed so that a user can learn about a subject
+brand new and then apply that knowledge to traverse application.
